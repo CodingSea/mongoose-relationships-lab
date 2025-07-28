@@ -12,10 +12,12 @@
     <% allAppointments.forEach((appointment) => { %>
         <div class="card">
             <p>Patient Name: <%= appointment.patientName %></p>
-            <p>Date: <%= appointment.specialty %></p>
+            <p>Date: <%= appointment.date %></p>
             <p>Reason: <%= appointment.reason %></p>
             <p>Doctor: <%= appointment.doctor.name %></p>
             <p>Notes: <%= appointment.notes %></p>
+
+            
 
             <a href="/appointments/<%= appointment._id %>"><button>View Details</button></a>
         </div>

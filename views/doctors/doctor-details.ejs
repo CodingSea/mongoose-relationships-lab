@@ -12,5 +12,12 @@
     <p>Specialty: <%= selectedDoctor.specialty %></p>
     <p>Years Of Experience: <%= selectedDoctor.yearsOfExperience %></p>
 
+    <% appointments.forEach((appointment) => { %>
+            <h2>Patient Name: <%= appointment.patientName %></h2>
+            <p>Date: <%= appointment.date %></p>
+            <p>Reason: <%= appointment.reason %></p>
+            <p>Doctor: <%= selectedDoctor.name %></p>
+            <p>Notes: <%= appointment.notes %></p>
+    <% }); %>
 </body>
 </html>
