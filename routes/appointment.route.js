@@ -41,11 +41,26 @@ router.post("/new", async (req, res) =>
     }
 });
 
-route.post("/:id/note", async (req, res) =>
+router.get("/:id", async (req, res) =>
+{
+    try
+    {
+        const foundAppointment = await Appointment.findById(req.params.id);
+        res.render("appointments/appointment-details.ejs", {foundAppointment});
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+});
+
+
+router.post("/:id/note", async (req, res) =>
 {
     try
     {
 
+        res.redirect("/appointments/" + req.params.id);
     }
     catch(error)
     {

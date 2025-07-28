@@ -8,16 +8,13 @@
 <body>
     <h1>Appointment Details</h1>
 
-        <label for="patientName">Patient Name: <%= foundAppointment.patientName  %></label>
-        <input type="text" name="patientName" readonly>
+        <p>Patient Name: <%= foundAppointment.patientName  %></p>
 
-        <label for="date">Date: <%= foundAppointment.date  %></label>
-        <input type="date" name="date" readonly>
+        <p >Date: <%= foundAppointment.date  %></p>
 
-        <label for="reason">Reason: <%= foundAppointment.reason  %></label>
-        <input type="text" name="reason" readonly>
+        <p>Reason: <%= foundAppointment.reason  %></p>
 
-        <label for="doctor">Doctor: <%= foundAppointment.doctor.name %></label>
+        <p>Doctor: <%= foundAppointment.doctor.name %></p>
 
     <h3>Notes</h3>
     <form action="/appointments/<%=foundAppointment._id %>/note" method="post">
