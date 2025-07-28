@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <h1>Doctors List</h1>
+    <a href="/doctors/new"><button>Add a Doctor</button></a>
+    <% allDoctors.forEach((doctor) => { %>
+        <div class="card">
+            <p>Name: <%= doctor.name %></p>
+            <p>Specialty: <%= doctor.specialty %></p>
+            <p>Years of Experience : <%= doctor.yearsOfExperience %></p>
+
+            <a href="/doctors/<%= doctor._id %>"><button>View Details</button></a>
+        </div>
+    <% }); %>
+</body>
+</html>
