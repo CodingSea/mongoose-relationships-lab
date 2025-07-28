@@ -76,6 +76,7 @@ router.delete("/:id", async (req, res) =>
     try
     {
         await Appointment.findByIdAndDelete(req.params.id);
+        res.redirect("/appointments");
     }
     catch(error)
     {
