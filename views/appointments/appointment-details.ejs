@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/main.css">
 </head>
 <body>
     <h1>Appointment Details</h1>
 
         <p>Patient Name: <%= foundAppointment.patientName  %></p>
 
-        <p >Date: <%= foundAppointment.date  %></p>
+        <p >Date: <%= foundAppointment.date.toLocaleDateString();  %></p>
 
         <p>Reason: <%= foundAppointment.reason  %></p>
 
         <p>Doctor: <%= foundAppointment.doctor.name %></p>
 
     <h3>Notes</h3>
-    <form action="/appointments/<%=foundAppointment._id %>/note" method="post">
+    <form action="/appointments/<%=foundAppointment._id %>?_method=PUT" method="post">
 
         <label for="content">Content: </label>
         <input type="text" name="content">
@@ -27,5 +28,13 @@
 
         <button>Submit Note</button>
     </form>
+
+    <% foundAppointment.notes.forEach((note) => { %>
+        <div class="note">
+            <p><%= note.content %></p>
+            <p><%= note.createdAt.toLocaleDateString(); %></p>
+        </div>
+    <% }); %>
+
 </body>
 </html>

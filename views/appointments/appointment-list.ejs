@@ -12,10 +12,16 @@
     <% allAppointments.forEach((appointment) => { %>
         <div class="card">
             <p>Patient Name: <%= appointment.patientName %></p>
-            <p>Date: <%= appointment.date %></p>
+            <p>Date: <%= appointment.date.toLocaleDateString(); %></p>
             <p>Reason: <%= appointment.reason %></p>
             <p>Doctor: <%= appointment.doctor.name %></p>
-            <p>Notes: <%= appointment.notes %></p>
+            <p>Notes: </p>
+            <% appointment.notes.forEach((note) => { %>
+                <div class="note">
+                    <p><%= note.content %></p>
+                    <p><%= note.createdAt.toLocaleDateString(); %></p>
+                </div>
+            <% }); %>
 
             
 

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/main.css">
 </head>
 <body>
     <h1>Doctor Details</h1>
@@ -12,12 +13,20 @@
     <p>Specialty: <%= selectedDoctor.specialty %></p>
     <p>Years Of Experience: <%= selectedDoctor.yearsOfExperience %></p>
 
-    <% appointments.forEach((appointment) => { %>
-            <h2>Patient Name: <%= appointment.patientName %></h2>
-            <p>Date: <%= appointment.date %></p>
-            <p>Reason: <%= appointment.reason %></p>
-            <p>Doctor: <%= selectedDoctor.name %></p>
-            <p>Notes: <%= appointment.notes %></p>
-    <% }); %>
+        <% appointments.forEach((appointment) => { %>
+            <div class="card">
+                <h2>Patient Name: <%= appointment.patientName %></h2>
+                <p>Date: <%= appointment.date.toLocaleDateString(); %></p>
+                <p>Reason: <%= appointment.reason %></p>
+                <p>Doctor: <%= selectedDoctor.name %></p>
+                <p>Notes: </p>
+                <% appointment.notes.forEach((note) => { %>
+                    <div class="note">
+                        <p><%= note.content %></p>
+                        <p><%= note.createdAt.toLocaleDateString(); %></p>
+                    </div>
+                <% }); %>
+            </div>
+        <% }); %>
 </body>
 </html>
