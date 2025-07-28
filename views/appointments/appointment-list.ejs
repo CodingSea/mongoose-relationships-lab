@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <%- include("../partials/header.ejs") %>
     <h1>Appointments List</h1>
     <a href="/appointments/new"><button>Add an Appointment</button></a>
     <% allAppointments.forEach((appointment) => { %>
