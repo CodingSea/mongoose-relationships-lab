@@ -41,11 +41,11 @@ router.post("/new", async (req, res) =>
     }
 });
 
-route.post("/books/<%=foundAppointment._id %>/note", async (req, res) =>
+route.post("/:id/note", async (req, res) =>
 {
     try
     {
-        
+
     }
     catch(error)
     {
