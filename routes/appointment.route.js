@@ -60,7 +60,7 @@ router.put("/:id", async (req, res) =>
     try
     {
         let updatedAppointment = await Appointment.findById(req.params.id);
-        const note = req.body;
+        let note = req.body;
         updatedAppointment.notes.push(note);
         updatedAppointment.save();
         res.redirect("/appointments/" + req.params.id);
